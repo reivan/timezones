@@ -1,0 +1,13 @@
+.timezone-table td,
+.timezone-table th {
+  text-align: center;
+}
+
+.timezone-table td.night-hour {
+  background-color: #4d4d4e;
+  color: #e6e6e6;
+}
+
+option {
+  font-family: monospace;
+}
