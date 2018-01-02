@@ -2,7 +2,13 @@ A tool for comparing timezones. A seen in [one of CGP Grey's videos](https://you
 
 ![](https://i.imgur.com/3XeDgH2.png)
 
+https://reivan.github.io/timezones
+
 Todo:
 
 - add current time indicator
 - add cursor
+- move reducers to their own folder
+- add component tests
+- add current tz choice
+- add city picker
