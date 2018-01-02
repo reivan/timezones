@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import TimezonesTable from './TimezonesTable';
 import { createStore } from 'redux';
 import reducer from './reducer';
-import { newId } from './utils'
 
 import './App.css';
 import 'bulma/css/bulma.css';
 
 let timezonesStore = createStore(reducer);
 
+let nextTimezoneId = 0;
 class App extends Component {
   constructor() {
     super();
@@ -25,19 +25,19 @@ class App extends Component {
     } else {
       timezonesStore.dispatch({
         type: 'ADD_TIMEZONE',
-        id: 0,
+        id: nextTimezoneId++,
         UTCDifference: 0
       });
 
       timezonesStore.dispatch({
         type: 'ADD_TIMEZONE',
-        id: 1,
+        id: nextTimezoneId++,
         UTCDifference: 3
       });
 
       timezonesStore.dispatch({
         type: 'ADD_TIMEZONE',
-        id: 2,
+        id: nextTimezoneId++,
         UTCDifference: -9
       });
     }
@@ -62,7 +62,7 @@ class App extends Component {
           timezones={this.state.timezones}
           addTimezone={UTCDifference => timezonesStore.dispatch({
             type: 'ADD_TIMEZONE',
-            id: newId(this.state.timezones),
+            id: nextTimezoneId++,
             UTCDifference: UTCDifference
           })}
           removeTimezone={id => timezonesStore.dispatch({
