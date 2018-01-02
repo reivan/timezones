@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { addHours, formatTimezone } from './utils';
 
+import 'bulma/css/bulma.css';
+import './TimezonesTable.css';
+
 const UTCDiffernceList = [
   0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
   -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12,
