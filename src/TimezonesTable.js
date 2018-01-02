@@ -14,9 +14,9 @@ export default ({ timezones, addTimezone, removeTimezone }) => {
           {timezones.map(tz => {
             return (
               <th key={tz.id}>
-                {formatTimezone(tz.UTCDifference)}
-                &nbsp;
-                <button onClick={() => removeTimezone(tz.id)}>X</button>
+                <button className="button" disabled>{formatTimezone(tz.UTCDifference)}</button>
+                {' '}
+                <button className="button is-danger" onClick={() => removeTimezone(tz.id)}>X</button>
               </th>
             );
           })}
@@ -53,7 +53,7 @@ export default ({ timezones, addTimezone, removeTimezone }) => {
 class TimezonePicker extends Component {
   render() {
     return (
-      <div>
+      <div className="select">
         <select
           onChange={e => this.props.addTimezone(+e.target.value)}
           value="null"
