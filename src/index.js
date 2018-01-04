@@ -1,41 +1,41 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import TimezonesTable from './TimezonesTable';
-import { createStore } from 'redux';
-import reducer from './reducer';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import { createStore } from 'redux'
+import TimezonesTable from './components/TimezonesTable/TimezonesTable'
+import reducer from './components/TimezonesTable/reducer'
 
-let timezonesStore = createStore(reducer);
+let timezonesStore = createStore(reducer)
 
-let nextTimezoneId = 0;
+let nextTimezoneId = 0
 
-const savedTimezonesString = localStorage.getItem('timezones') || '[]';
-const savedTimezones = JSON.parse(savedTimezonesString);
+const savedTimezonesString = localStorage.getItem('timezones') || '[]'
+const savedTimezones = JSON.parse(savedTimezonesString)
 if (savedTimezones.length !== 0) {
   savedTimezones.forEach(tz => {
     timezonesStore.dispatch({
       ...tz,
-      type: 'ADD_TIMEZONE',
-    });
+      type: 'ADD_TIMEZONE'
+    })
   })
 } else {
   timezonesStore.dispatch({
     type: 'ADD_TIMEZONE',
     id: nextTimezoneId++,
     UTCDifference: 0
-  });
+  })
 
   timezonesStore.dispatch({
     type: 'ADD_TIMEZONE',
     id: nextTimezoneId++,
     UTCDifference: 3
-  });
+  })
 
   timezonesStore.dispatch({
     type: 'ADD_TIMEZONE',
     id: nextTimezoneId++,
     UTCDifference: -9
-  });
+  })
 }
 
 const render = () => {
@@ -53,11 +53,11 @@ const render = () => {
       })}
     />,
     document.getElementById('root')
-  );
-};
+  )
+}
 
 timezonesStore.subscribe(() => (
   localStorage.setItem('timezones', JSON.stringify(timezonesStore.getState())))
-);
-timezonesStore.subscribe(render);
-render();
+)
+timezonesStore.subscribe(render)
+render()
