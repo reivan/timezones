@@ -6,9 +6,14 @@ https://reivan.github.io/timezones
 
 Todo:
 
+- add initial and persisting states
+- move to styled-components
 - add current time indicator
 - add cursor
 - move reducers to their own folder
 - add component tests
 - add current tz choice
 - add city picker
+
+- prettier
+- provider
